@@ -14,5 +14,9 @@ What does `which gcc` pick up in your path? What is its version.
 In your project what does `ocaml -version` report?
 OCaml 4.9 has been known to have problems with really old gcc versions.
 
+**Likely Cause:**
+Warming up your local build cache from CI when CI builds on a recent gcc, and your installed gcc is really old (With ubuntu this is common)
+
 **Solution:**
 Upgrade your ocaml in your `package.json` to 4.10.
+If you did import CI artifacts, you may want to purge your `~/.esy/3_*/i` directory.
